@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     api.get("repositories").then(({ data }) => {
-      return setRepositories[data.repositories];
+      setRepositories(data);
     });
   }, []);
 
@@ -36,7 +36,7 @@ function App() {
       <ul data-testid="repository-list">
         {repositories.map((repository) => (
           <li key={repository.id}>
-            {repository.title}{" "}
+            {repository.title}
             <button onClick={() => handleRemoveRepository(repository.id)}>
               Remover
             </button>
